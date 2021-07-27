@@ -2,7 +2,7 @@ const tempRouter = require("express").Router();
 const Temp = require("../models/temp");
 
 tempRouter.get("/", (req, res) => {
-  Model.find({}).then((temps) => {
+  Temp.find({}).then((temps) => {
     res.json(temps);
   });
 });

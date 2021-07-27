@@ -1,7 +1,7 @@
 const app = require("./app");
 const http = require("http");
 const config = require("./utils/config");
-const { logInfo, logError } = require("./utils/logger");
+const { logInfo } = require("./utils/logger");
 
 const server = http.createServer(app);
 

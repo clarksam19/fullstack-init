@@ -1,14 +1,15 @@
 const config = require("./utils/config");
 const express = require("express");
 const app = express();
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const cors = require("cors");
-const path = require("path");
+// const path = require("path");
 const middleware = require("./utils/middleware");
+const tempRouter = require("./controllers/temps");
 const { logInfo, logError } = require("./utils/logger");
 const mongoose = require("mongoose");
 
-logger.info("connecting to", config.MONGODB_URI);
+logInfo.info("connecting to", config.MONGODB_URI);
 
 mongoose
   .connect(config.MONGODB_URI, {
@@ -18,10 +19,10 @@ mongoose
     useCreateIndex: true,
   })
   .then(() => {
-    logger.info("connected to MongoDB");
+    logInfo("connected to MongoDB");
   })
   .catch((error) => {
-    logger.error("error connecting to MongoDB:", error.message);
+    logError("error connecting to MongoDB:", error.message);
   });
 
 app.use(cors());

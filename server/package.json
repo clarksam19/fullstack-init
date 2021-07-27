@@ -8,7 +8,9 @@
   "license": "ISC",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "jest --verbose",
+    "deploy": "git push heroku main"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
@@ -19,6 +21,12 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "supertest": "^6.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
