@@ -20,6 +20,12 @@ services:
     container_name: test-client
     environment:
       - PORT=3000
-
+  # db-dev:
+  #   image: mongo
+  #   restart: always
+  #   container_name: db-dev
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: admin
+  #     MONGO_INITDB_ROOT_PASSWORD: pass
 volumes:
   node_modules_client:
