@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  server:
+    build: ./server
+    ports:
+      - 3001:3001
+    volumes:
+      - ./server:/usr/src/app/local
+    container_name: test-server
+    environment:
+      - PORT=3001
+  client:
+    image: clarksam19/react-client:dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/usr/src/app/local
+      - node_modules_client:/usr/src/app/local/node_modules
+    container_name: test-client
+    environment:
+      - PORT=3000
+
+volumes:
+  node_modules_client:
