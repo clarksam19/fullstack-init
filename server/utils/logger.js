@@ -6,7 +6,7 @@ const logError = (...params) => {
   console.error(...params);
 };
 
-export default {
+module.exports = {
   logInfo,
   logError,
 };
