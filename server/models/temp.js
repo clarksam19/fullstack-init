@@ -5,6 +5,10 @@ const tempSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 tempSchema.set("toJSON", {

@@ -10,6 +10,8 @@ services:
     container_name: test-server
     environment:
       - PORT=3001
+    env_file:
+      - ./.env
   client:
     image: clarksam19/react-client:dev
     ports:
@@ -20,12 +22,28 @@ services:
     container_name: test-client
     environment:
       - PORT=3000
-  # db-dev:
-  #   image: mongo
-  #   restart: always
-  #   container_name: db-dev
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: admin
-  #     MONGO_INITDB_ROOT_PASSWORD: pass
+  db-dev:
+    image: mongo
+    restart: always
+    container_name: db-dev
+    ports:
+      - 27017:27017
+    volumes:
+      - db-dev:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootdev
+      - MONGO_INITDB_ROOT_PASSWORD=passdev
+      - MONGO_INITDB_DATABASE=db-dev
+  db-dev-admin:
+    image: mongo-express
+    restart: always
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootdev
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=passdev
+      - ME_CONFIG_MONGODB_SERVER=db-dev
+    container_name: db-dev-admin
+    ports:
+      - 8081:8081
 volumes:
   node_modules_client:
+  db-dev:

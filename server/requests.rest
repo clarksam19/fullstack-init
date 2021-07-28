@@ -1,0 +1,42 @@
+POST http://localhost:3001/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "contents": [],
+  "username": "sam",
+  "name": "sam clark",
+  "password": "sclarkspassword"
+}
+
+### 
+
+GET http://localhost:3001/api/temp/ HTTP/1.1
+
+###
+
+POST http://localhost:3001/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "sam",
+  "password": "sclarkspassword"
+}
+
+###
+
+POST http://localhost:3001/api/temp HTTP/1.1
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbSIsImlkIjoiNjEwMWMxZjk1ZWY1MDIwMTgzOTY5ZWNkIiwiaWF0IjoxNjI3NTA1MTUwLCJleHAiOjE2Mjc1MDg3NTB9.zMe0pXbURJ9lET38gqrvZ7bhQOJMHLiK8qyORYnf33o
+
+{
+  "content": "token authorized content"
+}
+###
+
+DELETE http://localhost:3001/api/temp/6101605a689c7c016c622b9c HTTP/1.1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbSIsImlkIjoiNjEwMTVlN2M2MWQyMDEwMTI2MTc4MjJkIiwiaWF0IjoxNjI3NDc5OTEzfQ.jGpBirAzEvusi1P53CtRpEIC_qBKnQSUddzrYDPRO3Y
+###
+
+GET http://localhost:3001/api/temp HTTP/1.1
+
+
