@@ -22,28 +22,28 @@ services:
     container_name: test-client
     environment:
       - PORT=3000
-  db-dev:
+  db-test:
     image: mongo
     restart: always
-    container_name: db-dev
+    container_name: db-test
     ports:
       - 27017:27017
     volumes:
-      - db-dev:/data/db
+      - db-test:/data/db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=rootdev
-      - MONGO_INITDB_ROOT_PASSWORD=passdev
-      - MONGO_INITDB_DATABASE=db-dev
-  db-dev-admin:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=db-test
+  db-test-admin:
     image: mongo-express
     restart: always
     environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=rootdev
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=passdev
-      - ME_CONFIG_MONGODB_SERVER=db-dev
-    container_name: db-dev-admin
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
+      - ME_CONFIG_MONGODB_SERVER=db-test
+    container_name: db-test-admin
     ports:
       - 8081:8081
 volumes:
   node_modules_client:
-  db-dev:
+  db-test:

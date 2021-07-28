@@ -43,22 +43,4 @@ if (process.env.NODE_ENV === "test") {
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
 
-// const data = [];
-// const promises = [];
-
-// for (let index = 1; index < 50; index++) {
-//   const promise = axios.post("/", (res) => {
-//     res.json(res.body);
-//   });
-
-//   promises.push(promise);
-// }
-
-// Promise.all(promises, (results) => {
-//   results.forEach((result) => {
-//     data.push(result);
-//   });
-// });
-
-// logInfo(JSON.stringify(data));
 module.exports = app;

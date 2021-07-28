@@ -3,9 +3,9 @@ Content-Type: application/json
 
 {
   "contents": [],
-  "username": "sam",
-  "name": "sam clark",
-  "password": "sclarkspassword"
+  "username": "test",
+  "name": "test user",
+  "password": "testpassword"
 }
 
 ### 
@@ -18,15 +18,15 @@ POST http://localhost:3001/api/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "sam",
-  "password": "sclarkspassword"
+  "username": "test",
+  "password": "testpassword"
 }
 
 ###
 
 POST http://localhost:3001/api/temp HTTP/1.1
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbSIsImlkIjoiNjEwMWMxZjk1ZWY1MDIwMTgzOTY5ZWNkIiwiaWF0IjoxNjI3NTA1MTUwLCJleHAiOjE2Mjc1MDg3NTB9.zMe0pXbURJ9lET38gqrvZ7bhQOJMHLiK8qyORYnf33o
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxMDFkYzhkY2Q0NzZlMDAyMThmMjNiYSIsImlhdCI6MTYyNzUxMTk3OSwiZXhwIjoxNjI3NTE1NTc5fQ.zXLBnUwohGcB0kvyh8h8_-UoyVDpwg-uTu_QmhoM1P0
 
 {
   "content": "token authorized content"
