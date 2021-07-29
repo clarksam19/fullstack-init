@@ -7,6 +7,7 @@ services:
       - 3001:3001
     volumes:
       - ./server:/usr/src/app/local
+      - ./client/build:/usr/src/app/local/build
     container_name: test-server
     environment:
       - PORT=3001
