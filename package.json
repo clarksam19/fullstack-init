@@ -27,7 +27,13 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "docker-compose -f docker-compose-prod.yml up -d",
+    "start:in": "docker-compose -f docker-compose-prod.yml up -d && docker exec -it test-server-prod sh",
+    "stop": "docker-compose -f docker-compose-prod.yml down",
+    "dev": "docker-compose up -d",
+    "dev:in": "docker-compose up -d && docker exec -it test-server bash",
+    "stop:dev": "docker-compose down",
+    "deploy": "git add . && git commit && git push"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
