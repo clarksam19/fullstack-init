@@ -34,7 +34,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 ###
 
 DELETE http://localhost:3001/api/temp/6101605a689c7c016c622b9c HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbSIsImlkIjoiNjEwMTVlN2M2MWQyMDEwMTI2MTc4MjJkIiwiaWF0IjoxNjI3NDc5OTEzfQ.jGpBirAzEvusi1P53CtRpEIC_qBKnQSUddzrYDPRO3Y
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxMDFkYzhkY2Q0NzZlMDAyMThmMjNiYSIsImlhdCI6MTYyNzUxMTk3OSwiZXhwIjoxNjI3NTE1NTc5fQ.zXLBnUwohGcB0kvyh8h8_-UoyVDpwg-uTu_QmhoM1P0
 ###
 
 GET http://localhost:3001/api/temp HTTP/1.1
