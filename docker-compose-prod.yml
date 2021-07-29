@@ -2,6 +2,7 @@ version: "3"
 
 services:
   server-prod:
+    image: clarksam19/fullstack-init_server:prod
     build: .
     ports:
       - 8000:8000

@@ -1,0 +1,29 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2 
+ 
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with: 
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+            
+    - name: Build and Push Dev Image
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: clarksam19/fullstack-init_server:dev
+      
+    - name: Build and Push Prod Image
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: clarksam19/fullstack-init_server:dev

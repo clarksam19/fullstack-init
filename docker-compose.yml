@@ -1,7 +1,8 @@
 version: "3"
 
 services:
-  server:
+  server-dev:
+    image: clarksam19/fullstack-init_server:dev
     build: ./server
     ports:
       - 3001:3001
