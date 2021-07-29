@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  server-prod:
+    build: .
+    ports:
+      - 8000:8000
+    container_name: test-server-prod
+    environment:
+      - PORT=8000
+    env_file:
+      - ./.env
