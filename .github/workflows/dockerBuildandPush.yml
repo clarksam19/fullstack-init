@@ -26,4 +26,4 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: clarksam19/fullstack-init_server:dev
+        tags: clarksam19/fullstack-init_server:prod
