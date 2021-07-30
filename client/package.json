@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:cov": "CI=true npm test -- --coverage",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

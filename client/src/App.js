@@ -1,7 +1,6 @@
 import React from "react";
 import UserAdmin from "./components/UserAdmin";
-import "./App.css";
-
+import "./styles/App.css";
 function App() {
   // const [content, setContent] = useState([]);
 

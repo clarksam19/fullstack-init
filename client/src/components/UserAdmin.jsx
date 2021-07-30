@@ -46,7 +46,6 @@ const UserAdmin = () => {
     } catch (err) {
       setNotification(notify().error.login);
       resetNotification();
-      throw err;
     }
   };
 
@@ -64,10 +63,8 @@ const UserAdmin = () => {
       setNotification(notify().success.signup);
       resetNotification();
     } catch (err) {
-      console.log(err);
       setNotification(notify().error.signup);
       resetNotification();
-      throw err;
     }
   };
 
@@ -86,9 +83,16 @@ const UserAdmin = () => {
   return (
     <div>
       <Notification notification={notification} />
-      <button onClick={() => show("login")}>login</button>
-      <button onClick={() => show("signup")}>signup</button>
-      <div style={{ display: loginVisible ? "" : "none" }}>
+      <button data-testid="btn-login" onClick={() => show("login")}>
+        login
+      </button>
+      <button data-testid="btn-signup" onClick={() => show("signup")}>
+        signup
+      </button>
+      <div
+        data-testid="form-login"
+        style={{ display: loginVisible ? "" : "none" }}
+      >
         <LoginForm
           handleLogin={handleLogin}
           handleUsernameChange={({ target }) => setUsername(target.value)}
@@ -97,7 +101,10 @@ const UserAdmin = () => {
           password={password}
         />
       </div>
-      <div style={{ display: signupVisible ? "" : "none" }}>
+      <div
+        data-testid="form-signup"
+        style={{ display: signupVisible ? "" : "none" }}
+      >
         <SignupForm
           handleSignup={handleSignup}
           handleUsernameChange={({ target }) => setUsername(target.value)}
