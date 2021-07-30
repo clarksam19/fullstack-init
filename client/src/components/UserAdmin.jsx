@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import Notification from "./Notification";
 import userAdminService from "../services/userAdminService";
 import tempService from "../services/tempService";
+import notify from "../utils/notify";
 
-const UserAdmin = (props) => {
+const UserAdmin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [, setUser] = useState(null);
   const [, setNewUser] = useState(null);
   const [loginVisible, setLoginVisible] = useState(false);
   const [signupVisible, setSignupVisible] = useState(false);
+  const [notification, setNotification] = useState(notify().reset);
 
   useEffect(() => {
     const loggedInUser = window.localStorage.getItem("loggedInUser");
@@ -20,6 +23,11 @@ const UserAdmin = (props) => {
       tempService.setToken(user.token);
     }
   }, []);
+  const resetNotification = () => {
+    setTimeout(() => {
+      setNotification(notify().reset);
+    }, 5000);
+  };
   const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -33,8 +41,11 @@ const UserAdmin = (props) => {
       setUser(user);
       setUsername("");
       setPassword("");
+      setNotification(notify(user.username).success.login);
+      resetNotification();
     } catch (err) {
-      console.log(err);
+      setNotification(notify().error.login);
+      resetNotification();
       throw err;
     }
   };
@@ -50,8 +61,12 @@ const UserAdmin = (props) => {
       setNewUser(newUser);
       setUsername("");
       setPassword("");
+      setNotification(notify().success.signup);
+      resetNotification();
     } catch (err) {
       console.log(err);
+      setNotification(notify().error.signup);
+      resetNotification();
       throw err;
     }
   };
@@ -70,6 +85,7 @@ const UserAdmin = (props) => {
 
   return (
     <div>
+      <Notification notification={notification} />
       <button onClick={() => show("login")}>login</button>
       <button onClick={() => show("signup")}>signup</button>
       <div style={{ display: loginVisible ? "" : "none" }}>
