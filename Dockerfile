@@ -1,8 +1,8 @@
 FROM node as build
 WORKDIR /usr/src/app
 COPY ./client .
-RUN npm install --only=prod && \
-    npm run build
+RUN npm install --only=prod
+RUN npm run build
 COPY ./client .
 
 FROM clarksam19/node-server:prod AS base
