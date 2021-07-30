@@ -2,8 +2,7 @@ FROM node as build
 WORKDIR /usr/src/app
 COPY ./client .
 RUN npm install --only=prod
-RUN npm run build
-COPY ./client .
+CMD ["npm", "run", "build"]
 
 FROM clarksam19/node-server:prod AS base
 
