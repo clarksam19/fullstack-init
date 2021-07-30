@@ -1,6 +1,6 @@
 FROM node as build
 WORKDIR /usr/src/app
-COPY ./client/package.json .
+COPY ./client .
 RUN npm install --only=prod && \
     npm run build
 COPY ./client .
